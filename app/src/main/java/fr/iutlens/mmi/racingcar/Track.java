@@ -1,6 +1,7 @@
 package fr.iutlens.mmi.racingcar;
 
 import android.graphics.Canvas;
+import android.util.Log;
 
 import fr.iutlens.mmi.racingcar.utils.SpriteSheet;
 
@@ -72,10 +73,27 @@ public class Track {
         return sprite.h;
     }
 
-    public void paint(Canvas canvas){
+    public void paint(Canvas canvas, Car car){
+        int dx = ((int) (car.x/getSizeX()))*getSizeX();
+        int dy = ((int) (car.y/getSizeY()))*getSizeY();
+
+
+
         for(int i = 0; i < data.length ; ++i) {
             for (int j = 0; j < data[i].length; ++j) {
-                sprite.paint(canvas, data[i][j], j * sprite.w, i * sprite.h);
+                sprite.paint(canvas, data[i][j], (j+dx) * sprite.w, (i+dy) * sprite.h);
+            }
+        }
+        dx= dx+getSizeX();
+        for(int i = 0; i < data.length ; ++i) {
+            for (int j = 0; j < data[i].length; ++j) {
+                sprite.paint(canvas, data[i][j], (j+dx) * sprite.w, (i+dy) * sprite.h);
+            }
+        }
+        dx= dx-2*getSizeX();
+        for(int i = 0; i < data.length ; ++i) {
+            for (int j = 0; j < data[i].length; ++j) {
+                sprite.paint(canvas, data[i][j], (j+dx) * sprite.w, (i+dy) * sprite.h);
             }
         }
     }

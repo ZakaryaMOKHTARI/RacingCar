@@ -92,7 +92,7 @@ public class GameView extends View implements TimerAction,  OrientationProxy.Ori
         setCamera(canvas);
 
         // Dessin des différents éléments
-        track.paint(canvas);
+        track.paint(canvas,car);
         car.paint(canvas,track.getTileWidth(),track.getTileHeight());
 
     }
