@@ -74,23 +74,21 @@ public class Track {
     }
 
     public void paint(Canvas canvas, Car car){
-        int dx = ((int) (car.x/getSizeX()))*getSizeX();
-        int dy = ((int) (car.y/getSizeY()))*getSizeY();
-
-
+        int dx = 0; ///((int) (car.x/getSizeX()-2f))*getSizeX();
+        int dy = ((int) (car.y/getSizeY()-2f))*getSizeY();
 
         for(int i = 0; i < data.length ; ++i) {
             for (int j = 0; j < data[i].length; ++j) {
                 sprite.paint(canvas, data[i][j], (j+dx) * sprite.w, (i+dy) * sprite.h);
             }
         }
-        dx= dx+getSizeX();
+        dy= dy+getSizeY();
         for(int i = 0; i < data.length ; ++i) {
             for (int j = 0; j < data[i].length; ++j) {
                 sprite.paint(canvas, data[i][j], (j+dx) * sprite.w, (i+dy) * sprite.h);
             }
         }
-        dx= dx-2*getSizeX();
+        dy= dy+getSizeY();
         for(int i = 0; i < data.length ; ++i) {
             for (int j = 0; j < data[i].length; ++j) {
                 sprite.paint(canvas, data[i][j], (j+dx) * sprite.w, (i+dy) * sprite.h);

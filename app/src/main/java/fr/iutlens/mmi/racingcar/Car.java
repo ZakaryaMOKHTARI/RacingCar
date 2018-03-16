@@ -58,8 +58,8 @@ public class Car {
     }
 
     public void setCommand(double pitch, double roll) {
-        pitch = rescale(pitch,90,15);
-        roll = rescale(roll,90,15);
+        pitch = rescale(pitch,150,5);
+        roll = rescale(roll,40,50);
 
         this.v = (float) (pitch*0.00005);
         this.dd = 0;
