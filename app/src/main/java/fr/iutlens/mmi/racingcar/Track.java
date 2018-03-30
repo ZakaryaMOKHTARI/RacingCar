@@ -18,6 +18,27 @@ public class Track {
     // 89AB
     // CDEF
     private final String[] def = {
+            "140008000051",
+            "140000000051",
+            "140008000051",
+            "140000000051",
+            "140008000051",
+            "140000000051",
+            "140008000051",
+            "140000000051",
+            "140008000051",
+            "140000000051",
+            "140008000051",
+            "140000000051"};
+
+
+    /*
+
+
+
+    */
+
+    /*
             "111111111111",
             "1111111866A1",
             "186666A49B51",
@@ -29,7 +50,12 @@ public class Track {
             "1405186D97C1",
             "140F6D97C111",
             "1E7777C11111",
-            "111111111111"};
+            "111111111111"
+
+    */
+
+
+
 
     private final int char2hex(char c){
         return DIGITS.indexOf(c);
@@ -48,7 +74,29 @@ public class Track {
         }
     }
 
-    public int get(int i, int j){
+
+    public int get(float x, float y){
+        int i = (int) x;
+        int j = (int) y;
+
+
+        if(i < 0 ){
+            return -1;
+        }
+
+        if(i >= getSizeX() ){
+            return -1;
+        }
+
+        while (j<0) j += getSizeY();
+        while (j>= getSizeY()) j -= getSizeY();
+
+        return get(i,j);
+
+
+    }
+
+    public int get(int j, int i){
         return data[i][j];
     }
 
@@ -94,5 +142,14 @@ public class Track {
                 sprite.paint(canvas, data[i][j], (j+dx) * sprite.w, (i+dy) * sprite.h);
             }
         }
+    }
+
+    public boolean valide(float x, float y) {
+
+        if(get(x, y) == 1){
+            return false;
+        }
+
+        return true;
     }
 }

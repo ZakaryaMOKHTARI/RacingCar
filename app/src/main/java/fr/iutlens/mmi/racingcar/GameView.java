@@ -71,7 +71,7 @@ public class GameView extends View implements TimerAction,  OrientationProxy.Ori
     public void update() {
         if (this.isShown()) { // Si la vue est visible
             timer.scheduleRefresh(30); // programme le prochain rafraichissement
-            car.update(); // mise à jour de la position de la voiture
+            car.update(track); // mise à jour de la position de la voiture
             invalidate(); // demande à rafraichir la vue
         }
     }
