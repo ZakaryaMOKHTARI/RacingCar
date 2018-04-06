@@ -53,7 +53,7 @@ public class GameView extends View implements TimerAction,  OrientationProxy.Ori
 
         // Création des différents éléments à afficher dans la vue
         track = new Track(null,R.drawable.circuit);
-        car = new Car(R.drawable.car,3,8,30);
+        car = new Car(R.drawable.car,3,8,0);
         police = new Police(R.drawable.police,3,13,0,car);
         camion = new Camion(R.drawable.camion,8,13,0,camion);
 

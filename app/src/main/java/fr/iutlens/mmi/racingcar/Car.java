@@ -12,7 +12,7 @@ import fr.iutlens.mmi.racingcar.utils.SpriteSheet;
 
 public class Car {
 
-    private SpriteSheet sprite;
+    protected SpriteSheet sprite;
 
     float x,y,direction;
     float v,dd;
