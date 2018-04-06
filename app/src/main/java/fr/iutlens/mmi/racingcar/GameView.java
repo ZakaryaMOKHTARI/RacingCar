@@ -17,6 +17,8 @@ public class GameView extends View implements TimerAction,  OrientationProxy.Ori
     private Track track;
     private Car car;
     private RefreshHandler timer;
+    private Police police;
+    private Camion camion;
 
     public GameView(Context context) {
         super(context);
@@ -46,10 +48,14 @@ public class GameView extends View implements TimerAction,  OrientationProxy.Ori
         // Chargement des feuilles de sprites
         SpriteSheet.register(R.drawable.circuit,4,4,this.getContext());
         SpriteSheet.register(R.drawable.car,3,1,this.getContext());
+        SpriteSheet.register(R.drawable.police,3,1,this.getContext());
+        SpriteSheet.register(R.drawable.camion,3,1,this.getContext());
 
         // Création des différents éléments à afficher dans la vue
         track = new Track(null,R.drawable.circuit);
         car = new Car(R.drawable.car,3,8,30);
+        police = new Police(R.drawable.police,3,13,0,car);
+        camion = new Camion(R.drawable.camion,8,13,0,camion);
 
         // Gestion du rafraichissement de la vue. La méthode update (juste en dessous)
         // sera appelée toutes les 30 ms
@@ -72,7 +78,11 @@ public class GameView extends View implements TimerAction,  OrientationProxy.Ori
         if (this.isShown()) { // Si la vue est visible
             timer.scheduleRefresh(30); // programme le prochain rafraichissement
             car.update(track); // mise à jour de la position de la voiture
+            police.setCommand(0,0);
+            police.update(track);
             invalidate(); // demande à rafraichir la vue
+            camion.setCommand(0,0);
+            camion.update(track);
         }
     }
 
@@ -94,6 +104,8 @@ public class GameView extends View implements TimerAction,  OrientationProxy.Ori
         // Dessin des différents éléments
         track.paint(canvas,car);
         car.paint(canvas,track.getTileWidth(),track.getTileHeight());
+        police.paint(canvas,track.getTileWidth(),track.getTileHeight());
+        camion.paint(canvas,track.getTileWidth(),track.getTileHeight());
 
     }
 
