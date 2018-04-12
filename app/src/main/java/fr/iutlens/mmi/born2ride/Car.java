@@ -1,8 +1,8 @@
-package fr.iutlens.mmi.racingcar;
+package fr.iutlens.mmi.born2ride;
 
 import android.graphics.Canvas;
 
-import fr.iutlens.mmi.racingcar.utils.SpriteSheet;
+import fr.iutlens.mmi.born2ride.utils.SpriteSheet;
 
 /**
  *

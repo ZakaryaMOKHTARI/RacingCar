@@ -1,17 +1,14 @@
-package fr.iutlens.mmi.racingcar;
+package fr.iutlens.mmi.born2ride;
 
 import android.content.Context;
 import android.graphics.Canvas;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.view.View;
 
-import java.util.Arrays;
-
-import fr.iutlens.mmi.racingcar.utils.OrientationProxy;
-import fr.iutlens.mmi.racingcar.utils.RefreshHandler;
-import fr.iutlens.mmi.racingcar.utils.SpriteSheet;
-import fr.iutlens.mmi.racingcar.utils.TimerAction;
+import fr.iutlens.mmi.born2ride.utils.OrientationProxy;
+import fr.iutlens.mmi.born2ride.utils.RefreshHandler;
+import fr.iutlens.mmi.born2ride.utils.SpriteSheet;
+import fr.iutlens.mmi.born2ride.utils.TimerAction;
 
 public class GameView extends View implements TimerAction,  OrientationProxy.OrientationListener {
     private Track track;

@@ -1,9 +1,8 @@
-package fr.iutlens.mmi.racingcar;
+package fr.iutlens.mmi.born2ride;
 
 import android.graphics.Canvas;
-import android.util.Log;
 
-import fr.iutlens.mmi.racingcar.utils.SpriteSheet;
+import fr.iutlens.mmi.born2ride.utils.SpriteSheet;
 
 /**
  * Created by dubois on 27/12/2017.
@@ -19,11 +18,11 @@ public class Track {
     // CDEF
     private final String[] def = {
             "140008000051",
-            "140000000051",
+            "14A000000051",
             "140008000051",
             "140000000051",
             "140008000051",
-            "140000000051",
+            "140000000951",
             "140008000051",
             "140000000051",
             "140008000051",

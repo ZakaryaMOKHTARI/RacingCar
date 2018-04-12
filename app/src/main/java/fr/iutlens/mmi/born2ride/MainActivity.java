@@ -1,10 +1,9 @@
-package fr.iutlens.mmi.racingcar;
+package fr.iutlens.mmi.born2ride;
 
-import android.graphics.drawable.GradientDrawable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
-import fr.iutlens.mmi.racingcar.utils.OrientationProxy;
+import fr.iutlens.mmi.born2ride.utils.OrientationProxy;
 
 public class MainActivity extends AppCompatActivity {
 

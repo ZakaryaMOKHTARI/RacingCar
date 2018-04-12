@@ -1,4 +1,4 @@
-package fr.iutlens.mmi.racingcar.utils;
+package fr.iutlens.mmi.born2ride.utils;
 
 /**
  * Created by dubois on 27/12/2017.
