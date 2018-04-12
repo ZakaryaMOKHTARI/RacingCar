@@ -1,4 +1,4 @@
-package fr.iutlens.mmi.racingcar;
+package fr.iutlens.mmi.born2ride;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;
