@@ -4,6 +4,7 @@ import android.content.Context;
 import android.graphics.Canvas;
 import android.util.AttributeSet;
 import android.view.View;
+import android.widget.TextView;
 
 import fr.iutlens.mmi.born2ride.utils.OrientationProxy;
 import fr.iutlens.mmi.born2ride.utils.RefreshHandler;
@@ -16,6 +17,8 @@ public class GameView extends View implements TimerAction,  OrientationProxy.Ori
     private RefreshHandler timer;
     private Police police;
     private Camion camion;
+    private boolean perdu;
+    private TextView scoreView;
 
     public GameView(Context context) {
         super(context);
@@ -65,6 +68,7 @@ public class GameView extends View implements TimerAction,  OrientationProxy.Ori
                 if (!timer.isRunning()) timer.scheduleRefresh(30);
             }
         });
+        perdu = false;
     }
 
     /**
@@ -72,14 +76,32 @@ public class GameView extends View implements TimerAction,  OrientationProxy.Ori
      */
     @Override
     public void update() {
-        if (this.isShown()) { // Si la vue est visible
+
+        if (this.isShown() && !perdu ) { // Si la vue est visible
             timer.scheduleRefresh(30); // programme le prochain rafraichissement
             car.update(track); // mise à jour de la position de la voiture
+
+
+
+
             police.setCommand(0,0);
             police.update(track);
-            invalidate(); // demande à rafraichir la vue
+
             camion.setCommand(0,0);
             camion.update(track);
+
+            if (car.collision(police)){
+                perdu = true;
+            }
+
+            if (car.collision(camion)){
+                perdu = true;
+            }
+
+            invalidate(); // demande à rafraichir la vue
+
+            if(scoreView!=null) scoreView.setText("Score: " +  ((int) -car.y) );
+
         }
     }
 
@@ -137,4 +159,7 @@ public class GameView extends View implements TimerAction,  OrientationProxy.Ori
         car.setCommand(Math.toDegrees(angle[1]),Math.toDegrees(angle[2]));
 
     }
+
+    public void setScoreView(TextView scoreView) {this.scoreView = scoreView; }
+
 }
