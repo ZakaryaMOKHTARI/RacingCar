@@ -23,7 +23,9 @@
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="32dp"
-        android:text="Penchez pour accélérer. Tournez, et semez les flics !"
+        android:text="Born2Ride : Penchez pour accélérer, tourner, et semer les flics !
+
+Bonne chance !"
         android:textAlignment="center"
         android:textColor="@android:color/white"
         app:layout_constraintEnd_toEndOf="parent"
